@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/oz-logo-white.png'
 import {handleLogout} from '../Logout/Logout'

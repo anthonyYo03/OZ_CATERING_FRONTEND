@@ -1,7 +1,7 @@
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { UserLogin } from '../types/user';
-import { Link, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import logo from '../assets/oz-logo-white.png';
 import './Login.css';

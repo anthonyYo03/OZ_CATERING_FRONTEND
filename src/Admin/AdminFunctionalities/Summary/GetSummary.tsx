@@ -1,4 +1,3 @@
-import React from 'react'
 import { Summary } from '../../../types/summary'
 import SummaryShell, { formatMoney, SummaryTile } from './SummaryShell'
 

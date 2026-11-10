@@ -1,4 +1,3 @@
-import React from 'react'
 import { Profit } from '../../../types/summary'
 import ObserverSummaryShell, { observerFormatMoney, ObserverSummaryTile } from './ObserverSummaryShell'
 
