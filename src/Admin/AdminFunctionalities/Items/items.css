@@ -1,0 +1,17 @@
+/* Item pages. Colors, fonts, lists, details and buttons come from index.css. */
+
+.item-page {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* Lets a long name wrap instead of pushing the Edit button off the page */
+.item-title {
+  flex: 1 1 16rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.item-filter {
+  max-width: 16rem;
+}

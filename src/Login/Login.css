@@ -1,0 +1,58 @@
+/* Login page layout. Colors, fonts, inputs and buttons come from index.css. */
+
+.oz-login-brand {
+  position: relative;
+  padding: 3rem 2rem;
+  background-color: var(--oz-sage);
+}
+
+/* Fine inset frame around the brand panel */
+.oz-login-brand::before {
+  content: '';
+  position: absolute;
+  inset: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  pointer-events: none;
+}
+
+.oz-login-logo {
+  position: relative;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}
+
+.oz-login-panel {
+  padding: 3rem 1.5rem;
+}
+
+.oz-login-form {
+  width: 100%;
+  max-width: 400px;
+}
+
+.oz-login-title {
+  margin-bottom: 0.35rem;
+  font-size: 2.75rem;
+  line-height: 1.1;
+}
+
+.oz-login-password-toggle {
+  --bs-btn-padding-x: 1rem;
+  min-width: 5rem;
+}
+
+/* Desktop: full-height split screen */
+@media (min-width: 992px) {
+  .oz-login-brand {
+    min-height: 100vh;
+  }
+
+  .oz-login-logo {
+    max-width: 420px;
+  }
+
+  .oz-login-title {
+    font-size: 3.25rem;
+  }
+}

@@ -1,0 +1,58 @@
+/* Customer pages. Colors, fonts, lists and buttons come from index.css. */
+
+.customer-page {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* Lets a long name wrap instead of pushing the Edit button off the page */
+.customer-title {
+  flex: 1 1 16rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.customer-details {
+  margin-bottom: 0;
+}
+
+.customer-details-row {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--oz-sage-light);
+}
+
+.customer-details-row:first-child {
+  padding-top: 0;
+}
+
+.customer-details-row:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.customer-details-row dt {
+  margin-bottom: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oz-muted);
+}
+
+.customer-details-row dd {
+  margin-bottom: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 576px) {
+  .customer-details-row {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+  }
+
+  .customer-details-row dt {
+    margin-bottom: 0;
+  }
+}

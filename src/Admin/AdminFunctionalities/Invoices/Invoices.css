@@ -1,0 +1,142 @@
+/* Invoice pages. Colors, fonts, lists, details and buttons come from index.css. */
+
+.invoice-page {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* Lets a long title wrap instead of pushing the Edit button off the page */
+.invoice-title {
+  flex: 1 1 16rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* List row: invoice number with the customer's name under it */
+.invoice-row-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.invoice-row-customer {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--oz-muted);
+  overflow-wrap: anywhere;
+}
+
+/* Items on the details page */
+.invoice-lines {
+  margin: 0;
+  list-style: none;
+}
+
+.invoice-lines-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--oz-sage-light);
+}
+
+.invoice-lines-row:first-child {
+  padding-top: 0;
+}
+
+.invoice-lines-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.invoice-lines-name {
+  overflow-wrap: anywhere;
+}
+
+.invoice-lines-calc {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--oz-muted);
+}
+
+.invoice-lines-amount {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.invoice-lines-total {
+  padding-bottom: 0;
+  font-family: var(--oz-font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  border-bottom: 0;
+}
+
+/* Item lines in the form */
+.invoice-form-note {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+}
+
+.invoice-line {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 5.5rem 7rem auto;
+  gap: 0.75rem;
+  align-items: end;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--oz-sage-light);
+}
+
+.invoice-line-amount-value {
+  display: block;
+  padding: calc(0.7rem + 1px) 0;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.invoice-line-remove {
+  --bs-btn-padding-x: 0.9rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.invoice-form-total {
+  font-family: var(--oz-font-serif);
+  font-size: 1.5rem;
+}
+
+.invoice-form-total strong {
+  font-weight: 500;
+}
+
+@media (max-width: 575.98px) {
+  .invoice-line {
+    grid-template-columns: 5rem minmax(0, 1fr) auto;
+  }
+
+  .invoice-line-item {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Regular digits: the serif font's default ones make #1 look like the letter I */
+.invoice-page {
+  font-variant-numeric: lining-nums;
+}
+
+/* Same height for every label on an item line */
+.invoice-line .form-label {
+  display: block;
+}
+
+@media (max-width: 575.98px) {
+  /* Keeps the button text on one line on small phones */
+  .invoice-form-actions .btn {
+    --bs-btn-padding-x: 0.9rem;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+  }
+}

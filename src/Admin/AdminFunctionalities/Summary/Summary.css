@@ -1,0 +1,132 @@
+/* Summary and Profit pages. Colors, fonts, panels and inputs come from index.css. */
+
+/* lining-nums: regular digits, the serif font's default ones make 1 look like the letter I
+   tabular-nums: every digit the same width, so amounts line up in columns */
+.summary-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.summary-range {
+  max-width: 28rem;
+}
+
+/* Tabs */
+.summary-tabs {
+  border-bottom-color: var(--oz-sage);
+}
+
+.summary-tabs .nav-link {
+  margin-bottom: -1px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oz-muted);
+  border: 1px solid transparent;
+}
+
+.summary-tabs .nav-link:hover {
+  color: var(--oz-olive-dark);
+  border-color: transparent;
+}
+
+.summary-tabs .nav-link.active {
+  color: var(--oz-ink);
+  background-color: var(--oz-ivory);
+  border-color: var(--oz-sage) var(--oz-sage) var(--oz-ivory);
+}
+
+/* Headline numbers */
+.summary-tile {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.5rem;
+}
+
+.summary-tile-label {
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oz-muted);
+}
+
+.summary-tile-value {
+  font-family: var(--oz-font-serif);
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.summary-tile-note {
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--oz-muted);
+}
+
+/* Tables */
+.summary-table-panel {
+  padding: 0.5rem 1.5rem;
+}
+
+.summary-table-panel:focus-visible {
+  outline: 2px solid var(--oz-olive);
+  outline-offset: 2px;
+}
+
+.summary-table {
+  color: var(--oz-ink);
+  border-color: var(--oz-sage-light);
+}
+
+.summary-table thead th {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--oz-muted);
+  border-bottom-color: var(--oz-sage);
+}
+
+.summary-table tbody th {
+  min-width: 11rem;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+
+.summary-table td {
+  white-space: nowrap;
+}
+
+.summary-table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.summary-table-strong {
+  font-weight: 500;
+}
+
+/* Bootstrap gives tables their own background and a dark line under the headings */
+.summary-table.table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--oz-ink);
+  background-color: transparent;
+}
+
+.summary-table.table > thead > tr:last-child > th {
+  border-bottom-color: var(--oz-sage);
+}
+
+.summary-table-note {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--oz-muted);
+}
