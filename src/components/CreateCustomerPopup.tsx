@@ -57,7 +57,7 @@ export default function CreateCustomerPopup({ FormComponent, onCreated, onClose 
       <div className="oz-popup" role="dialog" aria-modal="true" aria-labelledby="create_customer_title" ref={popupRef}>
         <div className="mb-4">
           <h2 className="oz-page-title" id="create_customer_title">New Customer</h2>
-          <p className="oz-eyebrow mb-0">All fields are required</p>
+          <p className="oz-eyebrow mb-0">All fields are required except email</p>
         </div>
 
         <FormComponent

@@ -22,7 +22,7 @@ export default function ObserverEditCustomer() {
       try {
         const response = await axios.get<Customer>(`${process.env.REACT_APP_BACKEND_URL}/api/customers/getOneCustomer/${id}`, { withCredentials: true, signal: controller.signal })
         const { customer_name, customer_email, customer_phone, customer_address } = response.data
-        setCustomer({ customer_name, customer_email, customer_phone, customer_address })
+        setCustomer({ customer_name, customer_email: customer_email ?? '', customer_phone, customer_address })
         setLoading(false)
       } catch (err: any) {
         if (axios.isCancel(err)) return
@@ -63,7 +63,7 @@ export default function ObserverEditCustomer() {
 
           <div className="mb-4">
             <h1 className="oz-page-title">Edit Customer</h1>
-            <p className="oz-eyebrow mb-0">All fields are required</p>
+            <p className="oz-eyebrow mb-0">All fields are required except email</p>
           </div>
 
           {loading && (

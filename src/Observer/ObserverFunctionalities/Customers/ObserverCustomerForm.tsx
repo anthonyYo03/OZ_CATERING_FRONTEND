@@ -15,8 +15,8 @@ export default function ObserverCustomerForm({ customer, setCustomer, onSubmit, 
       customer_address: customer.customer_address.trim(),
     }
 
-    if (!trimmedCustomer.customer_name || !trimmedCustomer.customer_email || !trimmedCustomer.customer_phone || !trimmedCustomer.customer_address) {
-      toast.error('Please fill in all fields')
+    if (!trimmedCustomer.customer_name || !trimmedCustomer.customer_phone || !trimmedCustomer.customer_address) {
+      toast.error('Please fill in name, phone and address')
       return
     }
 
@@ -40,7 +40,7 @@ export default function ObserverCustomerForm({ customer, setCustomer, onSubmit, 
       </div>
 
       <div className="mb-3">
-        <label htmlFor="customer_email" className="form-label">Email</label>
+        <label htmlFor="customer_email" className="form-label">Email (optional)</label>
         <input
           type="email"
           id="customer_email"

@@ -7,6 +7,7 @@ const managementOptions = [
   { title: 'Customers', description: 'View and manage customers', link: '/customers' },
   { title: 'Invoices', description: 'Create and track invoices', link: '/invoices' },
   { title: 'Return Invoices', description: 'Handle returned invoices', link: '/returns' },
+  { title: 'Receipts', description: 'Record payments received', link: '/receipts' },
   { title: 'Items', description: 'Manage your items', link: '/items' },
   { title: 'Summary', description: 'See an overview of activity', link: '/summary' },
 ]

@@ -44,7 +44,7 @@ export default function ObserverCreateCustomer() {
 
           <div className="mb-4">
             <h1 className="oz-page-title">New Customer</h1>
-            <p className="oz-eyebrow mb-0">All fields are required</p>
+            <p className="oz-eyebrow mb-0">All fields are required except email</p>
           </div>
 
           <ObserverCustomerForm

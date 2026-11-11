@@ -18,6 +18,10 @@ import GetAllReturnInvoices from './Admin/AdminFunctionalities/ReturnInvoices/Ge
 import GetOneReturnInvoice from './Admin/AdminFunctionalities/ReturnInvoices/GetOneReturnInvoice';
 import CreateReturnInvoices from './Admin/AdminFunctionalities/ReturnInvoices/CreateReturnInvoices';
 import EditReturnInvoices from './Admin/AdminFunctionalities/ReturnInvoices/EditReturnInvoices';
+import GetAllReceipts from './Admin/AdminFunctionalities/Receipts/GetAllReceipts';
+import GetOneReceipt from './Admin/AdminFunctionalities/Receipts/GetOneReceipt';
+import CreateReceipts from './Admin/AdminFunctionalities/Receipts/CreateReceipts';
+import EditReceipts from './Admin/AdminFunctionalities/Receipts/EditReceipts';
 import GetSummary from './Admin/AdminFunctionalities/Summary/GetSummary';
 import GetProfit from './Admin/AdminFunctionalities/Summary/GetProfit';
 import ObserverDashboard from './Observer/ObserverDashboard';
@@ -37,6 +41,10 @@ import ObserverGetAllReturnInvoices from './Observer/ObserverFunctionalities/Ret
 import ObserverGetOneReturnInvoice from './Observer/ObserverFunctionalities/ReturnInvoices/ObserverGetOneReturnInvoice';
 import ObserverCreateReturnInvoices from './Observer/ObserverFunctionalities/ReturnInvoices/ObserverCreateReturnInvoices';
 import ObserverEditReturnInvoices from './Observer/ObserverFunctionalities/ReturnInvoices/ObserverEditReturnInvoices';
+import ObserverGetAllReceipts from './Observer/ObserverFunctionalities/Receipts/ObserverGetAllReceipts';
+import ObserverGetOneReceipt from './Observer/ObserverFunctionalities/Receipts/ObserverGetOneReceipt';
+import ObserverCreateReceipts from './Observer/ObserverFunctionalities/Receipts/ObserverCreateReceipts';
+import ObserverEditReceipts from './Observer/ObserverFunctionalities/Receipts/ObserverEditReceipts';
 import ObserverGetSummary from './Observer/ObserverFunctionalities/Summary/ObserverGetSummary';
 import ObserverGetProfit from './Observer/ObserverFunctionalities/Summary/ObserverGetProfit';
 import { Toaster } from 'react-hot-toast';
@@ -65,6 +73,10 @@ function App() {
         <Route path="/returns/create" element={<CreateReturnInvoices />} />
         <Route path="/returns/:id" element={<GetOneReturnInvoice />} />
         <Route path="/returns/:id/edit" element={<EditReturnInvoices />} />
+        <Route path="/receipts" element={<GetAllReceipts />} />
+        <Route path="/receipts/create" element={<CreateReceipts />} />
+        <Route path="/receipts/:id" element={<GetOneReceipt />} />
+        <Route path="/receipts/:id/edit" element={<EditReceipts />} />
         <Route path="/summary" element={<GetSummary />} />
         <Route path="/summary/profit" element={<GetProfit />} />
         <Route path="/observerDashboard" element={<ObserverDashboard />} />
@@ -84,6 +96,10 @@ function App() {
         <Route path="/observer/returns/create" element={<ObserverCreateReturnInvoices />} />
         <Route path="/observer/returns/:id" element={<ObserverGetOneReturnInvoice />} />
         <Route path="/observer/returns/:id/edit" element={<ObserverEditReturnInvoices />} />
+        <Route path="/observer/receipts" element={<ObserverGetAllReceipts />} />
+        <Route path="/observer/receipts/create" element={<ObserverCreateReceipts />} />
+        <Route path="/observer/receipts/:id" element={<ObserverGetOneReceipt />} />
+        <Route path="/observer/receipts/:id/edit" element={<ObserverEditReceipts />} />
         <Route path="/observer/summary" element={<ObserverGetSummary />} />
         <Route path="/observer/summary/profit" element={<ObserverGetProfit />} />
 

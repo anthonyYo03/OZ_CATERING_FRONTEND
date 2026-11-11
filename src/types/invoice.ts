@@ -27,7 +27,8 @@ export interface InvoiceSummary {
 
 // What the "get one" route returns
 export interface Invoice extends InvoiceSummary {
-    InvoiceItems: InvoiceLine[]
+    InvoiceItems: InvoiceLine[],
+    Customer?: { customer_email: string | null, customer_phone: string } | null
 }
 
 // One line while it is being typed in the form

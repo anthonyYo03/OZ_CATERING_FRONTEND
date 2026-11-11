@@ -1,0 +1,42 @@
+/* Receipt pages. Colors, fonts, lists, details and buttons come from index.css. */
+
+/* lining-nums: regular digits, the serif font's default ones make #1 look like the letter I */
+.receipt-page {
+  max-width: 760px;
+  margin: 0 auto;
+  font-variant-numeric: lining-nums;
+}
+
+/* Lets a long title wrap instead of pushing the Edit button off the page */
+.receipt-title {
+  flex: 1 1 16rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* List row: receipt number with the customer's name and amount under it */
+.receipt-row-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.receipt-row-customer {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--oz-muted);
+  overflow-wrap: anywhere;
+}
+
+.receipt-notes {
+  white-space: pre-wrap;
+}
+
+@media (max-width: 575.98px) {
+  /* Keeps the button text on one line on small phones */
+  .receipt-form-actions .btn {
+    --bs-btn-padding-x: 0.9rem;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+  }
+}
