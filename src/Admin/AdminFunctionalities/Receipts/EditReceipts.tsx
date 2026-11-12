@@ -97,6 +97,7 @@ export default function EditReceipts() {
               setReceiptForm={setReceiptForm}
               invoices={[]}
               invoiceLabel={invoiceLabel}
+              receiptId={Number(id)}
               onSubmit={handleUpdate}
               saving={saving}
               submitLabel="Save Changes"

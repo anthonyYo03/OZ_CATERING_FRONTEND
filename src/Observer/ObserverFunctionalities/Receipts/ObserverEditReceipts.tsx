@@ -97,6 +97,7 @@ export default function ObserverEditReceipts() {
               setReceiptForm={setReceiptForm}
               invoices={[]}
               invoiceLabel={invoiceLabel}
+              receiptId={Number(id)}
               onSubmit={observerHandleUpdate}
               saving={saving}
               submitLabel="Save Changes"

@@ -49,11 +49,19 @@ export interface ReceiptData extends ReceiptUpdateData {
     invoice_id: number
 }
 
+// How much of an invoice is paid, shown under the amount on the receipt form
+export interface InvoiceBalance {
+    total: number,
+    paid: number,       // by the other receipts of this invoice
+    original: number    // the receipt's own amount before editing (0 for a new receipt)
+}
+
 export interface ReceiptFormProps {
     receiptForm: ReceiptFormData,
     setReceiptForm: (receiptForm: ReceiptFormData) => void,
     invoices: InvoiceSummary[],
     invoiceLabel?: string,      // when set, the invoice is shown as read-only text
+    receiptId?: number,         // the receipt being edited, so its own amount is not counted as already paid
     onSubmit: (receiptData: ReceiptData) => void,
     saving: boolean,
     submitLabel: string,

@@ -28,6 +28,25 @@ export default function ObserverGetProfit() {
             />
           </div>
 
+          <h2 className="oz-section-title">Profit per Salary</h2>
+          <div className="row row-cols-1 row-cols-md-3 g-3 mb-4">
+            <ObserverSummaryTile
+              label="Receipt Value"
+              value={observerFormatMoney(report.receipt_value)}
+              note="Payments received"
+            />
+            <ObserverSummaryTile
+              label="Cost"
+              value={observerFormatMoney(report.cost)}
+              note="What those items cost you"
+            />
+            <ObserverSummaryTile
+              label="Profit per Salary"
+              value={observerFormatMoney(report.profit_per_salary)}
+              note="Receipt value minus cost"
+            />
+          </div>
+
           {report.missing_cost_lines > 0 && (
             <div className="alert alert-warning" role="status">
               {report.missing_cost_lines === 1 ? '1 line has' : `${report.missing_cost_lines} lines have`} no saved cost, so the numbers above leave {report.missing_cost_lines === 1 ? 'it' : 'them'} out. Revenue here can be lower than Net on the Summary tab.
