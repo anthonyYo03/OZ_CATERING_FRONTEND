@@ -47,6 +47,10 @@ import ObserverCreateReceipts from './Observer/ObserverFunctionalities/Receipts/
 import ObserverEditReceipts from './Observer/ObserverFunctionalities/Receipts/ObserverEditReceipts';
 import ObserverGetSummary from './Observer/ObserverFunctionalities/Summary/ObserverGetSummary';
 import ObserverGetProfit from './Observer/ObserverFunctionalities/Summary/ObserverGetProfit';
+import GetAllDuePayments from './Admin/AdminFunctionalities/DuePayments/GetAllDuePayments';
+import GetOneDuePayment from './Admin/AdminFunctionalities/DuePayments/GetOneDuePayment';
+import ObserverGetAllDuePayments from './Observer/ObserverFunctionalities/DuePayments/ObserverGetAllDuePayments';
+import ObserverGetOneDuePayment from './Observer/ObserverFunctionalities/DuePayments/ObserverGetOneDuePayment';
 import { Toaster } from 'react-hot-toast';
 
 function App() {
@@ -79,6 +83,8 @@ function App() {
         <Route path="/receipts/:id/edit" element={<EditReceipts />} />
         <Route path="/summary" element={<GetSummary />} />
         <Route path="/summary/profit" element={<GetProfit />} />
+        <Route path="/duePayments" element={<GetAllDuePayments />} />
+        <Route path="/duePayments/:id" element={<GetOneDuePayment />} />
         <Route path="/observerDashboard" element={<ObserverDashboard />} />
         <Route path="/observer/customers" element={<ObserverGetAllCustomers />} />
         <Route path="/observer/customers/create" element={<ObserverCreateCustomer />} />
@@ -102,6 +108,8 @@ function App() {
         <Route path="/observer/receipts/:id/edit" element={<ObserverEditReceipts />} />
         <Route path="/observer/summary" element={<ObserverGetSummary />} />
         <Route path="/observer/summary/profit" element={<ObserverGetProfit />} />
+        <Route path="/observer/duePayments" element={<ObserverGetAllDuePayments />} />
+        <Route path="/observer/duePayments/:id" element={<ObserverGetOneDuePayment />} />
 
       </Routes>
     </BrowserRouter>

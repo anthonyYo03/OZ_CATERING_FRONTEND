@@ -8,6 +8,7 @@ const managementOptions = [
   { title: 'Invoices', description: 'Create and track invoices', link: '/invoices' },
   { title: 'Return Invoices', description: 'Handle returned invoices', link: '/returns' },
   { title: 'Receipts', description: 'Record payments received', link: '/receipts' },
+  { title: 'Due Payments', description: 'See what each customer still owes', link: '/duePayments' },
   { title: 'Items', description: 'Manage your items', link: '/items' },
   { title: 'Summary', description: 'See an overview of activity', link: '/summary' },
 ]

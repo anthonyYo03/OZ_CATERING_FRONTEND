@@ -1,4 +1,5 @@
 import { jsPDF } from 'jspdf'
+import axios from 'axios'
 import { Invoice } from '../types/invoice'
 import { ReturnInvoice } from '../types/returnInvoice'
 import { Receipt } from '../types/receipt'
@@ -92,6 +93,7 @@ interface PdfContent {
   total: string,
   totalLabel?: string,                          // TOTAL unless set, e.g. AMOUNT PAID on a receipt
   totalInWords: string,
+  balanceBox?: { label: string, value: string },  // small box under the total, e.g. REMAINING BALANCE on a receipt
   footerNote: string,
   fileName: string
 }
@@ -146,18 +148,12 @@ function buildAndSavePdf(content: PdfContent) {
   doc.setFont('helvetica', 'bold')
   doc.setFontSize(28)
   doc.setTextColor(COLORS.white)
-  doc.text(content.heading, LEFT, 21, { charSpace: 1.5 })
+  spacedText(content.heading, RIGHT, 21, 1.5, true)
 
   doc.setFont('helvetica', 'normal')
   doc.setFontSize(12)
   doc.setTextColor(COLORS.soft)
-  doc.text(`#${content.number}`, LEFT, 30)
-
-  smallLabel(totalLabel, RIGHT, 19, COLORS.soft, true)
-  doc.setFont('helvetica', 'bold')
-  doc.setFontSize(18)
-  doc.setTextColor(COLORS.white)
-  doc.text(`$${content.total}`, RIGHT, 29, { align: 'right' })
+  doc.text(`#${content.number}`, RIGHT, 30, { align: 'right' })
 
   // ---- Customer on the left ----
   const columnsTop = 56
@@ -269,7 +265,7 @@ function buildAndSavePdf(content: PdfContent) {
   doc.setFont('helvetica', 'italic')
   doc.setFontSize(9.5)
   const wordLines: string[] = doc.splitTextToSize(content.totalInWords, TOTAL_BOX_LEFT - LEFT - 8)
-  const totalsHeight = Math.max(14, 6 + wordLines.length * LINE_HEIGHT)
+  const totalsHeight = Math.max(content.balanceBox ? 27 : 14, 6 + wordLines.length * LINE_HEIGHT)
   if (y + totalsHeight > PAGE_BOTTOM) startNewPage()
 
   doc.setFillColor(accent)
@@ -281,7 +277,18 @@ function buildAndSavePdf(content: PdfContent) {
   doc.setFontSize(14)
   doc.text(`$${content.total}`, RIGHT - 5, y + 9.5, { align: 'right' })
 
-  smallLabel('AMOUNT IN WORDS', LEFT, y + 3.5, COLORS.muted)
+  // Small light box under the total (receipts only)
+  if (content.balanceBox) {
+    const boxTop = y + 17
+    doc.setFillColor(COLORS.soft)
+    doc.roundedRect(TOTAL_BOX_LEFT, boxTop, RIGHT - TOTAL_BOX_LEFT, 10, 2, 2, 'F')
+    smallLabel(content.balanceBox.label, TOTAL_BOX_LEFT + 5, boxTop + 6.3, COLORS.muted)
+    doc.setFont('helvetica', 'bold')
+    doc.setFontSize(10.5)
+    doc.setTextColor(COLORS.ink)
+    doc.text(content.balanceBox.value, RIGHT - 5, boxTop + 6.6, { align: 'right' })
+  }
+
   doc.setFont('helvetica', 'italic')
   doc.setFontSize(9.5)
   doc.setTextColor(COLORS.ink)
@@ -352,7 +359,20 @@ export function saveReturnInvoicePdf(returnInvoice: ReturnInvoice, invoiceNumber
   })
 }
 
-export function saveReceiptPdf(receipt: Receipt, methodLabel: string) {
+// Fetches what the customer still owes right now. Returns null if it can't be loaded,
+// so the receipt is still saved, just without the balance box.
+const fetchRemainingBalance = async (customerId: number) => {
+  try {
+    const response = await axios.get<{ balance: number }>(`${process.env.REACT_APP_BACKEND_URL}/api/duePayments/customerBalance/${customerId}`, { withCredentials: true })
+    return response.data.balance.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+  } catch (err) {
+    console.error(err)
+    return null
+  }
+}
+
+export async function saveReceiptPdf(receipt: Receipt, methodLabel: string) {
+  const remainingBalance = await fetchRemainingBalance(receipt.customer_id)
   buildAndSavePdf({
     heading: 'RECEIPT',
     number: receipt.receipt_number,
@@ -377,6 +397,7 @@ export function saveReceiptPdf(receipt: Receipt, methodLabel: string) {
     total: receipt.amount,
     totalLabel: 'AMOUNT PAID',
     totalInWords: amountInWords(receipt.amount),
+    ...(remainingBalance && { balanceBox: { label: 'REMAINING BALANCE', value: remainingBalance } }),
     footerNote: 'Thank you for your payment!',
     fileName: `Receipt-${receipt.receipt_number}.pdf`
   })

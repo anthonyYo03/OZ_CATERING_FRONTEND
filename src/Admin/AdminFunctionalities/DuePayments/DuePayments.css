@@ -1,0 +1,97 @@
+/* Due payment pages. Colors, fonts, lists, details and buttons come from index.css. */
+
+/* lining-nums: regular digits, the serif font's default ones make #1 look like the letter I
+   tabular-nums: every digit the same width, so amounts line up in columns */
+.due-page {
+  max-width: 760px;
+  margin: 0 auto;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+/* Lets a long title wrap instead of pushing the button off the page */
+.due-title {
+  flex: 1 1 16rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* List row: due payment number with the customer's name and balance under it */
+.due-row-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.due-row-customer {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--oz-muted);
+  overflow-wrap: anywhere;
+}
+
+.due-month {
+  max-width: 14rem;
+}
+
+/* Table: Date | Invoice | Return | Receipt | Total */
+.due-table-panel {
+  padding: 0.5rem 1.5rem;
+}
+
+.due-table-panel:focus-visible {
+  outline: 2px solid var(--oz-olive);
+  outline-offset: 2px;
+}
+
+.due-table.table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--oz-ink);
+  color: var(--oz-ink);
+  background-color: transparent;
+  border-color: var(--oz-sage-light);
+}
+
+.due-table thead th {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--oz-muted);
+}
+
+.due-table.table > thead > tr:last-child > th {
+  border-bottom-color: var(--oz-sage);
+}
+
+.due-table td {
+  white-space: nowrap;
+}
+
+.due-table-empty-cell {
+  color: var(--oz-border);
+}
+
+/* Small link to the invoice, return or receipt under its amount */
+.due-table-ref {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.due-table-forward > * {
+  font-style: italic;
+  color: var(--oz-muted);
+}
+
+.due-table-strong {
+  font-weight: 500;
+}
+
+.due-table tfoot td {
+  font-family: var(--oz-font-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  border-bottom: 0;
+  border-top: 1px solid var(--oz-sage);
+}
