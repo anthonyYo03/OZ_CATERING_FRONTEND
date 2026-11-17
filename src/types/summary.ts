@@ -53,6 +53,9 @@ export interface Profit {
     profit: number,
     receipt_value: number,
     profit_per_salary: number,
+    projected_profit: number,
+    cash_profit: number,
+    outstanding_payments: number,
     missing_cost_lines: number,
     items: ProfitItem[]
 }

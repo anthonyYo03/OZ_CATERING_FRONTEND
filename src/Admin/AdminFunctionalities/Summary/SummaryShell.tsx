@@ -7,7 +7,7 @@ import './Summary.css'
 
 // Also shows negatives properly, e.g. -$9.00
 export const formatMoney = (amount: number) =>
-  amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+  amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' }).replace('-', '−') // real minus sign: the font's hyphen is slanted
 
 const pad = (value: number) => String(value).padStart(2, '0')
 

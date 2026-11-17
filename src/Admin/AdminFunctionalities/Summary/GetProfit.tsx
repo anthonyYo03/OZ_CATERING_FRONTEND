@@ -10,6 +10,7 @@ export default function GetProfit() {
     >
       {report => (
         <>
+          {/* Revenue / Cost / Profit tiles hidden for now
           <div className="row row-cols-1 row-cols-md-3 g-3 mb-4">
             <SummaryTile
               label="Revenue"
@@ -27,8 +28,27 @@ export default function GetProfit() {
               note="Revenue minus cost"
             />
           </div>
+          */}
 
-          <h2 className="oz-section-title">Profit per Salary</h2>
+          <div className="row row-cols-1 row-cols-md-3 g-3 mb-4">
+            <SummaryTile
+              label="Projected Profit"
+              value={formatMoney(report.projected_profit)}
+              note="Total profit if everyone pays"
+            />
+            <SummaryTile
+              label="Cash Based Profit"
+              value={formatMoney(report.cash_profit)}
+              note="Profit from what has been paid"
+            />
+            <SummaryTile
+              label="Outstanding Payments"
+              value={formatMoney(report.outstanding_payments)}
+              note="What customers still owe you"
+            />
+          </div>
+
+          <h2 className="oz-section-title">Profit</h2>
           <div className="row row-cols-1 row-cols-md-3 g-3 mb-4">
             <SummaryTile
               label="Receipt Value"
@@ -41,7 +61,7 @@ export default function GetProfit() {
               note="What those items cost you"
             />
             <SummaryTile
-              label="Profit per Salary"
+              label="Profit"
               value={formatMoney(report.profit_per_salary)}
               note="Receipt value minus cost"
             />

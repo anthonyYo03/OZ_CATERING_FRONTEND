@@ -10,6 +10,7 @@ export default function ObserverGetProfit() {
     >
       {report => (
         <>
+          {/* Revenue / Cost / Profit tiles hidden for now
           <div className="row row-cols-1 row-cols-md-3 g-3 mb-4">
             <ObserverSummaryTile
               label="Revenue"
@@ -27,8 +28,27 @@ export default function ObserverGetProfit() {
               note="Revenue minus cost"
             />
           </div>
+          */}
 
-          <h2 className="oz-section-title">Profit per Salary</h2>
+          <div className="row row-cols-1 row-cols-md-3 g-3 mb-4">
+            <ObserverSummaryTile
+              label="Projected Profit"
+              value={observerFormatMoney(report.projected_profit)}
+              note="Total profit if everyone pays"
+            />
+            <ObserverSummaryTile
+              label="Cash Based Profit"
+              value={observerFormatMoney(report.cash_profit)}
+              note="Profit from what has been paid"
+            />
+            <ObserverSummaryTile
+              label="Outstanding Payments"
+              value={observerFormatMoney(report.outstanding_payments)}
+              note="What customers still owe you"
+            />
+          </div>
+
+          <h2 className="oz-section-title">Profit</h2>
           <div className="row row-cols-1 row-cols-md-3 g-3 mb-4">
             <ObserverSummaryTile
               label="Receipt Value"
@@ -41,7 +61,7 @@ export default function ObserverGetProfit() {
               note="What those items cost you"
             />
             <ObserverSummaryTile
-              label="Profit per Salary"
+              label="Profit"
               value={observerFormatMoney(report.profit_per_salary)}
               note="Receipt value minus cost"
             />

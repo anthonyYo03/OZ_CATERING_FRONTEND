@@ -7,7 +7,7 @@ import './ObserverSummary.css'
 
 // Also shows negatives properly, e.g. -$9.00
 export const observerFormatMoney = (amount: number) =>
-  amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+  amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' }).replace('-', '−') // real minus sign: the font's hyphen is slanted
 
 const observerPad = (value: number) => String(value).padStart(2, '0')
 
